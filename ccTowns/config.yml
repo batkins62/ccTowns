@@ -1,0 +1,110 @@
+############################################################
+# +------------------------------------------------------+ #
+# |                   Plugin Info                        | #
+# +------------------------------------------------------+ #
+############################################################
+
+# The various versions for this plugin & components.
+version:
+  # This plugin's last recorded version.
+  plugin: '1.1.0'
+  # This configuration's last recorded version.
+  config: '2'
+  
+# This token only shows when the plugin is disabled.
+# Entering this token when the plugin is enabled will
+# save changes made. Without this password, nothing saves.
+config-token: ''
+
+# This will be true when the plugin is running
+plugin-running: 'false'
+
+# Toggle whether the plugin will verbosely log.
+debug: 'false'
+debug-dev: 'true'
+
+# As long as this stays set, and doesnt get removed or changed,
+# this plugin will not force admins to configure.
+first-run: 'true'
+
+# Virtual config write frequency in seconds. This adjust how
+# often the virtual config saves its data to disk. if
+# the configuration has not been written to, config will not
+# save.
+save-config: '3600'
+
+############################################################
+# +------------------------------------------------------+ #
+# |                     Dependencies                     | #
+# +------------------------------------------------------+ #
+############################################################
+
+# These values set themselves. if the
+# required plugins do not return true, plugin will not load.
+# If the optional plugins do not return true, some of the
+# plugin features will not work.
+dependencies:
+  required:
+    vault: 'false'
+    worldguard: 'false'
+  optional:
+    essentials: 'false'
+    nocheatplus: 'false'
+
+############################################################
+# +------------------------------------------------------+ #
+# |                         Portals                      | #
+# +------------------------------------------------------+ #
+############################################################
+
+# This is the default location of where a portal not linked
+# will send a player. this most commonly is called the 'hub'
+default-portal: ''
+default-portal-world: ''
+
+############################################################
+# +------------------------------------------------------+ #
+# |                  Security/ Anti-Cheat                | #
+# +------------------------------------------------------+ #
+############################################################
+
+# Toggles whether or not we will even check for fly violations.
+fly-violation-checks: 'true'
+
+# This is the location the player will be sent to when they
+# get a violation level higher then the punish-level.
+fly-punish-location: ''
+fly-punish-location-world: ''
+
+# The violation level that punishments will be dealt.
+punish-fly: '5'
+
+# How often in seconds violation levels will decrement.
+decrement-fly-violations: '3600'
+
+############################################################
+# +------------------------------------------------------+ #
+# |                   Residents                          | #
+# +------------------------------------------------------+ #
+############################################################
+
+# List of words that will not log when a watched player says
+# it. DO NOT FORGET THE /
+watched-players-blacklist: ''
+
+# List of words that will trigger precious stone nagger
+nag-pstone-offender: ''
+
+# The amount of milliseconds that a resident will become
+# "inactive", unless said player is the obvious online.
+resident-inactive: ''
+
+# Default cost of a plot in towns.
+plot:
+  cost: '100.00'
+  
+# People that will be messaged on major town events.
+# 'OP' will message all server operators.
+# '!' prefixed to a name will disclude them from inheritance.
+# 'ONLINE' will message everyone online.
+town-notification: ''

@@ -1,0 +1,284 @@
+name: ccTowns
+version: 1.1.3
+main: com.creepercountry.cctowns.main.CTPlugin
+description: 'Just like towny, except works with worldguard, and doesnt have stupid features.'
+author: stealth62
+website: 'www.creepercountry.com'
+softdepend:
+  - Essentials
+  - NoCheatPlus
+depend:
+  - Vault
+  - WorldGuard
+  - WorldEdit
+commands:
+  town:
+    description: 'do town commands'
+    aliases:
+      - ta
+      - townadmin
+    permission: ct.command.town
+    usage: 'Syntax error! Simply type /town help to get started.'
+  portal:
+    description: 'do portal commands'
+    permission: ct.command.portal.use
+    usage: 'Syntax error! Simply type /portal help to get started.'
+  cc:
+    description: 'control the plugin'
+    aliases:
+      - ct
+      - cctowns
+    permission: ct.command.cctowns
+    usage: 'Syntax error! Simply type /cc help to get started.'
+permissions:
+  'ct.*':
+    description: 'Gives access to all CTTowns actions'
+    children:
+      ct.account.create.self: true
+      'ct.command.*': true
+      'ct.help.*': true
+      'ct.town.*': true
+      'ct.admin': true
+      'ct.mod': true
+      'cc.watched.broadcast': true
+      'ct.plot.*': true
+  ct.account.create.self:
+    description: 'on player join creates an account if one doesnt exists'
+    default: true
+  'ct.command.*':
+    description: 'any and every command.'
+    children:
+      ct.command.town: true
+      ct.command.cctowns: true
+      ct.command.help: true
+      ct.command.promote: true
+      ct.command.promote.others: true
+      ct.command.demote: true
+      ct.command.demote.others: true
+      ct.command.info: true
+      ct.command.join: true
+      ct.command.join.others: true
+      ct.command.defaultflyloc: true
+      ct.command.rule: true
+      ct.command.flag: true
+      ct.command.flag.others: true
+      ct.command.quit: true
+      ct.command.quit.others: true
+      ct.command.set: true
+      ct.command.set.others: true
+      ct.command.money.*: true
+      ct.command.balance.others: true
+      ct.command.list: true
+      ct.command.mail: true
+      ct.command.mail.others: true
+      ct.command.debug: true
+      ct.command.portal.*: true
+      ct.command.ban.nether: true
+      ct.command.watched: true
+      ct.command.word: true
+      ct.command.pvp: true
+      ct.fly.bypass: true
+      ct.command.raffle: true
+  'ct.command.basic':
+    description: 'basic set of commands should be safe for the everyday user.'
+    children:
+      ct.command.town: true
+      ct.command.cctowns: true
+      ct.command.help: true
+      ct.command.promote: true
+      ct.command.demote: true
+      ct.command.mail: true
+      ct.command.info: true
+      ct.command.join: true
+      ct.command.flag: true
+      ct.command.quit: true
+      ct.command.set: true
+      ct.command.money: true
+      ct.command.list: true
+  ct.command.mail:
+    description: 'town mail'
+    default: true
+  ct.command.mail.others:
+    description: 'other peoples town mail'
+    default: op
+  ct.command.debug:
+    description: 'debug mode toggle'
+    default: op
+  ct.command.town:
+    description: 'just gives permission to USE /town'
+    default: true
+  ct.command.vault:
+    description: 'access to the vault command'
+    default: op
+  ct.command.cctowns:
+    description: 'just gives permission to USE /cctowns'
+    default: true
+  ct.command.read:
+    description: 'read commands for intel files'
+    default: true
+  ct.command.help:
+    description: 'view help for cctowns.'
+    default: true
+  ct.command.promote.others:
+    description: 'force a promote on a user to a town'
+    default: op
+  ct.command.promote:
+    description: 'promote a user, includes demote.'
+    default: false
+  ct.command.demote.others:
+    description: 'force a demote on a user to a town'
+    default: op
+  ct.command.demote:
+    description: 'demote a user, includes demote.'
+    default: false
+  ct.command.rule:
+    description: 'adds a rule to a town'
+    default: op
+  ct.command.info:
+    description: 'view info on a town.'
+    default: true
+  ct.command.join.others:
+    description: 'force a player to join a town'
+    default: op
+  ct.command.pvp:
+    description: 'access to champion commands'
+    default: op
+  ct.command.defaultflyloc:
+    description: 'add a default fly violation location'
+    default: op
+  ct.command.join:
+    description: 'join a town.'
+    default: true
+  ct.command.ban.nether:
+    description: 'ban players from the nether'
+    default: op
+  ct.command.word:
+    description: 'words that are special nag/ignore'
+    default: op
+  ct.command.raffle:
+    description: 'use the raffle command.'
+    default: true
+  ct.command.set:
+    description: 'set town settings.'
+    default: false
+  ct.command.set.others:
+    description: 'set town settings for other towns.'
+    default: op
+  ct.fly.bypass:
+    description: 'bypass fly detection on bad areas block.'
+    default: op
+  ct.command.flag:
+    description: 'add a wg flag to a town.'
+    default: false
+  ct.command.flag.others:
+    description: 'flag features to other towns'
+    default: op
+  ct.command.watched:
+    description: 'use the watched command'
+    default: op
+  ct.command.portal.*:
+    description: 'all money commands.'
+    children:
+      ct.command.portal.use: true
+      ct.command.portal.create: true
+      ct.command.portal.delete: true
+  ct.command.portal.use:
+    description: 'use the portal command'
+    default: op
+  ct.command.portal.create:
+    description: 'create new portals'
+    default: op
+  ct.command.portal.delete:
+    description: 'delete portals'
+    default: op
+  ct.command.quit:
+    description: 'quit a town.'
+    default: true
+  ct.command.quit.others:
+    description: 'force a player to quit a town'
+    default: op
+  ct.portal.create:
+    description: 'create portals'
+    default: op
+  ct.command.donation:
+    description: 'use the donation command'
+    default: op
+  ct.fly.attack.override:
+    description: 'override attack on fly restrictions'
+    default: op
+  ct.command.money.*:
+    description: 'all money commands.'
+    children:
+      ct.command.money: true
+      ct.command.balance.others: true
+      ct.command.deposit.others: true
+  ct.command.money:
+    description: 'add money to the town''s bank account for buying flags.'
+    default: false
+  ct.command.balance.others:
+    description: 'view balance of towns'
+    default: op
+  ct.command.deposit.others:
+    description: 'deposit money into other towns'
+    default: op
+  ct.command.list:
+    description: 'list of all the towns.'
+    default: true
+  'ct.help.*':
+    description: 'all help commands'
+    children:
+      ct.help.admin: true
+      ct.help.town: true
+      ct.help.president: true
+  ct.help.admin:
+    description: 'view administration help lines.'
+    default: op
+  ct.help.town:
+    description: 'view town related help lines.'
+    default: true
+  ct.help.president:
+    description: 'view presidential help lines.'
+    default: true
+  cc.watched.broadcast:
+    description: 'view watched player data live'
+    default: op
+  'ct.town.*':
+    description: 'all town commands.'
+    children:
+      ct.town.create: true
+      ct.town.delete: true
+      ct.town.addrule: true
+      ct.town.status: true
+  ct.town.create:
+    description: 'create a new town.'
+    default: op
+  ct.town.addrule:
+    description: 'adds a rule to a town.'
+    default: op
+  ct.town.delete:
+    description: 'delete a town.'
+    default: op
+  ct.town.status:
+    description: 'toggle active status of a town'
+    default: op
+  'ct.plot.*':
+    description: 'all plot perms.'
+    children:
+      ct.plot.create: true
+      ct.plot.destroy: true
+      ct.plot.use: true
+  ct.plot.create:
+    description: 'create plots'
+    default: op
+  ct.plot.destroy:
+    description: 'delete plots'
+    default: op
+  ct.plot.use:
+    description: 'use/purchase plots'
+    default: true
+  ct.admin:
+    description: 'a server admin'
+    default: op
+  ct.mod:
+    description: 'a server mod'
+    default: op
