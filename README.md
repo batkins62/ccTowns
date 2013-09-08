@@ -1,4 +1,0 @@
-ccTowns
-=======
-
-the town plugin
